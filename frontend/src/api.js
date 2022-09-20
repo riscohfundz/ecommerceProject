@@ -10,10 +10,13 @@ export const getProduct = async (id)=>{
                 'Content-Type': 'application/json',
             }, 
         });
+
         if (response.statusText !== 'OK'){
             throw new Error(response.data.message);
         } 
+        
         return response.data;
+        
     } catch (err){  
         console.log(err);
         return {error:err.response.data.message || err.message};

@@ -2,7 +2,7 @@ export default  {
     products: [
         { 
             _id: '1',
-        name: 'Hiskywin Full Zip Running Shirts Thermal Workout',
+        name: 'adams',
         category: 'Shirts',
         image: '/images/product-1.jpg',
         price: '59',
