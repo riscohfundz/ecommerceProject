@@ -34,7 +34,7 @@ JS AMAZONA
 
 5. Build Url routes 
  1. create routes as route:screen object for home screen
- 2. create utilis.js
+ 2. create utils.js
  3. export paraseRequestURL()
  4. set url as hash address split by splash
  5. return resource, id and verb of url
@@ -125,3 +125,31 @@ JS AMAZONA
 10. create add to cart button with add-button id
 11. after_render() to add event to the button
 12. redirect user to cart/:product_id
+
+16. add to cart action
+1. create cartscreen.js 
+2. parseRequestUrl()
+3. getproduction(request.id)
+4. addToCart
+5. getCartItems
+6. cartItems.find
+7. if existItem update qty
+8. else add item
+
+17. Cart Screen UI
+1. cxartItems = getCartItems()
+2. create 2 columns for items and cart action 
+3. cartItems.length === 0 ? cart is empty
+4. show item image, name, qty and price
+5. cart action 
+6. subtotal
+7. proceed to Checkout button 
+8. add css style 
+
+18.  Update and delete Cart Items
+1. add qty select next to each item
+2. after_render()
+3. add change event to qty select
+4. getCartItems() and pass to addToCart()
+5. set force to true to addToCart()
+6. 

@@ -2,7 +2,7 @@ export default  {
     products: [
         { 
             _id: '1',
-        name: 'adams',
+        name: 'Hiskywin Full Zip Running Shirts Thermal Workout',
         category: 'Shirts',
         image: '/images/product-1.jpg',
         price: '59',
@@ -20,8 +20,7 @@ export default  {
         price: '70',
         brand: 'Nike',
         rating: '5',
-        numReviews: '51',
-        conutInStock: '6',
+          numReviews: '10',
         },
 
         { 
@@ -33,7 +32,6 @@ export default  {
         brand: 'Adidas',
         rating: '7.6',
         numReviews: '10',
-        conutInStock: '6',
         },
 
         { 
@@ -45,25 +43,23 @@ export default  {
         brand: 'Joggers',
         rating: '4.5',
         numReviews: '10',
-        conutInStock: '6',
         },
 
         { 
             _id: '5',
-        name: 'Full Zip Running Shirts',
+        name: 'Champion Mens Graphic Powerblend Fleece Jogger Pants',
         category: 'Shirts',
         image: '/images/product-5.jpg',
         price: '60',
         brand: 'jersey',
         rating: '8.0',
         numReviews: '10',
-        conutInStock: '6',
         },
 
         { 
             _id: '6',
-        name: 'Full Zip Running Shirts',
-        category: 'Shirts',
+        name: 'Lacoste Mens Joggers Pants Long Multi-Pockets',
+        category: 'Trouser',
         image: '/images/product-6.jpg',
         price: '60',
         brand: 'cadigan ',
