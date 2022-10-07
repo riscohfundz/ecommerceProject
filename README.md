@@ -152,4 +152,13 @@ JS AMAZONA
 3. add change event to qty select
 4. getCartItems() and pass to addToCart()
 5. set force to true to addToCart()
-6. 
+6. create rerender() as (component, areaName = 'content')
+7. component.render and component.after_render
+8. if force is true then rerender()
+9. add delete button next to each other
+10. add click event to qty button
+11. call removeFormCart(deleteButton.id)
+12. implement removeFormCart(id)
+13. setCartItems(getCartItems().filter)
+14. if id === parseRequestUrl().id? redirrect to '/cart'
+15. else rerender(CartScreen);

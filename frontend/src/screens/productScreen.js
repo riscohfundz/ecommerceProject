@@ -3,13 +3,16 @@ import { getProduct } from '../api';
 import Rating from '../components/rating';  
 
 const productScreen = {
-          after_render: () =>{
+  after_render: () =>{
             const request = parseRequestUrl();
+            console.log(request.id);
             document.getElementById('add-button').addEventListener('click', () => {
               document.location.hash = `/cart/${request.id}`;
             });           
-  },
+     },
+
     render: async () => {
+      
         const request = parseRequestUrl(); 
         const product = await getProduct(request.id);
           if (product.error){
@@ -53,13 +56,13 @@ const productScreen = {
                         </li>
                         <li>
                         Status: 
-                            ${product.conutInStock > 0 
+                            ${product.countInStock > 0 
                               ? `<span class="success">In Stock</span>`
                               : `<span class="error">Unavailable</span>`
                             }
                         </li>
                           <li>
-                        <button id="add-button" class="fw primary"> Add to cart</button>
+                        <button id="add-button" type='submit' class="fw primary"> Add to cart</button>
                         </li>
                       </ul>
                   </div>
