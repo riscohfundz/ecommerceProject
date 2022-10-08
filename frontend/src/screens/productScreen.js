@@ -5,7 +5,7 @@ import Rating from '../components/rating';
 const productScreen = {
   after_render: () =>{
             const request = parseRequestUrl();
-            console.log(request.id);
+            // console.log(request.id);
             document.getElementById('add-button').addEventListener('click', () => {
               document.location.hash = `/cart/${request.id}`;
             });           
@@ -41,11 +41,17 @@ const productScreen = {
                     <li>
                         price: <strong>$${product.price}</strong>
                       </li>
+                      <li>
+                      Description: 
+                      <div>
+                          ${product.Description}
+                      </div>
+                      </li> 
                         <li>
-                          Description: 
-                        <div>
-                            ${product.description}
-                        </div>
+                        Category: 
+                        <strong>
+                            ${product.category}
+                        </strong>
                         </li>              
                     </ul>
                 </div>

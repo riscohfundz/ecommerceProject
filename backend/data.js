@@ -9,7 +9,7 @@ export default  {
         brand: 'Hiskywin',
         rating: '4.5',
         numReviews: '10',
-        conutInStock: '6',
+        countInStock: '6',
         },
         
         { 
@@ -20,7 +20,8 @@ export default  {
         price: '55',
         brand: 'Nike',
         rating: '5',
-          numReviews: '10',
+        numReviews: '10',
+        countInStock: '5',
         },
 
         { 
@@ -32,6 +33,7 @@ export default  {
         brand: 'Adidas',
         rating: '7.6',
         numReviews: '10',
+        countInStock: '4',
         },
 
         { 
@@ -43,6 +45,7 @@ export default  {
         brand: 'Joggers',
         rating: '4.5',
         numReviews: '10',
+        countInStock: '3',
         },
 
         { 
@@ -65,7 +68,7 @@ export default  {
         brand: 'cadigan ',
         rating: '9',
         numReviews: '10',
-        conutInStock: '6',
+        countInStock: '6',
         },
 ],
 
