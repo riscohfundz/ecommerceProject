@@ -62,10 +62,10 @@ const productScreen = {
                         </li>
                         <li>
                         Status: 
-                            ${product.countInStock > 0 
-                              ? `<span class="success">In Stock</span>`
-                              : `<span class="error">Unavailable</span>`
-                            }
+                        ${product.countInStock > 0 
+                          ? `<span class="success">In Stock</span>`
+                          : `<span class="error">Unavailable</span>`
+                        }
                         </li>
                           <li>
                         <button id="add-button" type='submit' class="fw primary"> Add to cart</button>

@@ -1,11 +1,29 @@
 import express from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import data from './data';
+import config from './config';
+import userRouter from './routers/userRouter';
 
+
+mongoose
+  .connect(config.MONGODB_URL)
+    .then(()=>{ 
+        console.log('connected to mongodb');
+    })
+ 
+
+.catch((error) =>{
+    console.log(error.reason);
+})
 const app = express(); 
 app.use(cors());
-const port = 5000;
- 
+app.use(bodyParser.json());
+app.use('/api/users', userRouter )
+app.get('/api/products', (req,res) =>{
+    res.send(data.products);
+})
 app.get("/api/products", (req, res) => {
  res.send(data.products);
 });  
@@ -18,8 +36,12 @@ app.get('/api/products/:id', (req, res) =>{
        res.status(404).send({message: 'Product Not Found!'});
     }
 });
-
-app.listen(port, () => {
+ 
+app.use((err, req, res,next) =>{
+    const status = err.name && err.name ==='validationError' ? 400 : 500;
+    res.status(status).send({message: err.message });
+});
+app.listen(5000, () => {
     console.log('Server at https://localhost:5000');
 });
    

@@ -162,3 +162,59 @@ JS AMAZONA
 13. setCartItems(getCartItems().filter)
 14. if id === parseRequestUrl().id? redirrect to '/cart'
 15. else rerender(CartScreen);
+
+19. connect to mongoDB and create admin user
+  1. npm install mongoose
+  2. connect to mongoDB
+  3. create config.js
+  4. npm install dotenv
+  5. export PORT and MONGODB_URL
+  6. create models/useModel.js
+  7. create userSchema and userModel
+  8. create userRoute
+  9. create createadmin route
+  
+  20. Sign-in screen UI
+   2. create SigninScreen
+   3. render email and password fields
+   4. style signin form 
+   21. sign-in screen action
+    1. after_render handle form sunbmit. 
+    2. create reqister request in frontend 
+    3. create sign-in api in backend
+    
+  21. sign in screen backend 
+    3. create signin api in backend
+    4. create route for /api/user/signin
+    5. create check username and password
+    6. if it is not ok the return 401 error
+    7. install express-async-Handler
+    8. wrap it in expressAsyncHandler
+    9. add error middleware in server.js
+    10. install postman
+    11. send post request
+    12. test with invalid user password
+    13. otherwise generate token
+    14. install jsonwebtoken
+    15. set config.JTW_SECRET to somethingsecret
+    16. add generateToken to utils.js
+    17. return token
+    18. test with correct user and password
+
+    22. Create header component 
+      1. update index.html 
+      2. add header render and after render to router function 
+      3. show header menu based on user logged in or not 
+
+      23. Register screen action
+        1. after_render handle form submit
+        2. create register request in frontend 
+        3. create reqister api in backend
+        
+        24. create checkout wizard header component 
+         1. create component 
+         2. style component
+         3. handle form submit
+         
+         26. payment screen
+          1. create paymentScreen.js
