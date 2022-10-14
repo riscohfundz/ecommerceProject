@@ -178,11 +178,8 @@ JS AMAZONA
    2. create SigninScreen
    3. render email and password fields
    4. style signin form 
-   21. sign-in screen action
-    1. after_render handle form sunbmit. 
-    2. create reqister request in frontend 
-    3. create sign-in api in backend
-    
+
+
   21. sign in screen backend 
     3. create signin api in backend
     4. create route for /api/user/signin
@@ -201,20 +198,44 @@ JS AMAZONA
     17. return token
     18. test with correct user and password
 
-    22. Create header component 
+   22. Sign-in screen action
+     1. after_render handle form sunbmit. 
+     2. create signin request in frontend
+     3. show alert if email or password is incorrect
+     4. add getUserInfo and subUserInfo to localStorage
+    5. Create header component
+    6. if userInfo.email exist show username otherwise show sigin
+
+   23. Create  progress Indicator and alert component
+     1. create overlay loading
+     2. style overlay loading
+     3. create showLoading() function
+     4. set loading-overlay classList add active
+     5. create hiddenLoading() function
+     6. create overlay message div in index.html
+     7. add style overlay message
+     8. create showMessage(message, callback)
+     9. document message-overlay set innerHTML
+     10. div > div id message-overlay-content
+     11. show message
+     12. button id message-overlay-close-button OK
+     13. add class active to it 
+     14. add addEventListener for button to callback
+
+      24.  Create Header Component
       1. update index.html 
       2. add header render and after render to router function 
       3. show header menu based on user logged in or not 
 
-      23. Register screen action
+      25. Register screen action
         1. after_render handle form submit
         2. create register request in frontend 
         3. create reqister api in backend
         
-        24. create checkout wizard header component 
+        26. create checkout wizard header component 
          1. create component 
          2. style component
          3. handle form submit
          
-         26. payment screen
+         27. payment screen
           1. create paymentScreen.js
