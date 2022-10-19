@@ -220,22 +220,51 @@ JS AMAZONA
      11. show message
      12. button id message-overlay-close-button OK
      13. add class active to it 
-     14. add addEventListener for button to callback
+     14.  addEventListener for button to callback
 
       24.  Create Header Component
       1. update index.html 
       2. add header render and after render to router function 
       3. show header menu based on user logged in or not 
 
-      25. Register screen action
+      255. Register screen action
         1. after_render handle form submit
         2. create register request in frontend 
         3. create reqister api in backend
         
+        25. User profile screen
+         1. create profileScreen.js
+         2. add form elements
+         3. after_render handle form submit
+         4. create profile update request in frontend
+         5. Create profile update api in backend
+         6. create isAuth in utils.js and use in update profile
+         7. implement sign out 
+
         26. create checkout wizard header component 
-         1. create component 
-         2. style component
-         3. handle form submit
+         1. create CheckOutSteps.js
+         2. create div element for steps 1 to 4
+         3. create redirectUser() in utils.js
+         4. copy profile screen and as shipping screen 
+         5. use CheckOutStep
+         6. define getPayment and setPayment
+         7. copy shipping screen and as setPayment screen
+         8. define getPayment and setPayment
+         9. redirect user to placeOrder.js
          
-         27. payment screen
+
+       27. Shipping Screen
+         1. create shippingScreen.js
+         2. style element  
+
+         28. payment screen
           1. create paymentScreen.js
+          2. style elements
+          3. handle form submit
+
+          30. placeOrder screen UI
+           1. create placeOrder.js
+           2. style elements
+
+           31. placeOrder screen action
+            1. handle form submit 

@@ -4,5 +4,5 @@ dotenv.config();
 
 export default {
     MONGODB_URL: process.env.MONGODB_URL,
-    JTW_SECRET: process.env.JTW_SECRET
+    JWT_SECRET: process.env.JWT_SECRET,
 };
