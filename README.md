@@ -268,3 +268,25 @@ JS AMAZONA
 
            31. placeOrder screen action
             1. handle form submit 
+            2. create backend api to create order
+          
+          32. order Screen 
+           1. create orderScreen.js
+           2. create backend api to create order
+
+          33. Paypal Payment
+           1. add paypal checkout script 
+           2. show paypal checkout script
+           3. update order after payment
+
+          34. User history
+           1. create order history api 
+           2. show order in profile Screen
+
+          35. Admin Product
+           1. create Admin Order menu in header
+           2. Create ProductListScreen.js
+           3. show product with edit and delete button
+           4. show create product button
+           5. implement create product backend
+           6. redirect user to edit product Screen
