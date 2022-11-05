@@ -1,4 +1,4 @@
-import { update } from "../api";
+import { getMyOrders, update } from "../api";
 import { getUserInfo, setUserInfo, clearUser } from "../localStorage";
 import { hideLoading, showLoading, showMessage } from "../utils";
 
@@ -29,13 +29,16 @@ const ProfileScreen = {
         }
       });
     },
-    render: () =>{
-      const {name, email} = getUserInfo();
+    render: async () =>{
+      const {name, email, password} = getUserInfo();
       if(!name) {
         document.location.hash = '/';
       }
+      const orders = await getMyOrders();
         return `
-        <div class="form-container">
+        <div class="content profile">
+          <div class="profile-info">
+          <div class="form-container">
           <form id="profile-form">
             <ul class="form-items">
               <li>
@@ -59,10 +62,48 @@ const ProfileScreen = {
               <li>
                  <button type="button" id="signout-button">Sign Out</button>  
               </li>
-             
             </ul>
           </form>
         </div>
+          </div>
+          <div class="profile-orders">
+          <h2>Order History</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ORDER ID</th>
+                <th>DATE</th>
+                <th>TOTAL</th>
+                <th>PAID</th>
+                <th>DELIVERED</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+            ${
+              orders.length === 0 
+              ? `<tr><td colspan="6">No Order Found.</tr>`
+               : orders.map(
+                (order) => `
+            
+            <tr>
+              <td>${order._id}</td>
+              <td>${order.createdAt}</td>    
+              <td>${order.totalPrice}</td>    
+              <td>${order.paidAt || 'No' }</td>    
+              <td>${order.deliveryAt || 'No' }</td>    
+              <td><a href="/#/order/${order._id}">DETAILS</a></td>    
+            </tr>
+            `
+            ).join('\n')
+                
+          }
+          </tbody>
+          </table>   
+         </div>
+
+
+        
 
         `;
     },

@@ -20,7 +20,7 @@ export default  {
         price: '55',
         brand: 'Nike',
         rating: '5',
-        numReviews: '10',
+        numReviews: '51',
         countInStock: '5',
         },
 

@@ -18,7 +18,7 @@ export const isAuth = (req, res, next) =>{
     res.status(401).send ({message: 'Token is not Supplied'});
   }else {
     const token = bearerToken.slice(7, bearerToken.length);
-    console.log(token);
+    // console.log(token);
     jwt.verify(token,config.JWT_SECRET, (err, data) =>{
       if (err) {
         res.status(401).send({message: 'Invalid Token'});
@@ -28,4 +28,11 @@ export const isAuth = (req, res, next) =>{
       }
     });
   }
-} 
+};
+export const isAdmin = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+    next();
+  } else {
+    res.status(401).send({message:'Token is not valid for a user' });
+  }
+};

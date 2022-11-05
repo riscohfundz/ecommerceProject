@@ -1,19 +1,25 @@
-import productScreen from './screens/productScreen.js';
 import HomeScreen from './screens/HomeScreen.js';
+import ProductScreen from './screens/ProductScreen.js';
 import { hideLoading, parseRequestUrl, showLoading} from './utils.js';
 import Error404Screen from './screens/Error404Screen.js';
 import CartScreen from './screens/CartScreen.js';
 import SigninScreen from './screens/SigninScreen.js';
 import Header from './components/Header.js';
 import RegisterScreen from './screens/RegisterScreen.js';
-import ProfileScreen from './screens/ProfileScreen.js';
-import ShippingScreen from './screens/ShippingScreen.js';
+import ProfileScreen from './screens/ProfileScreen';
+import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen.js';
 import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
+import OrderScreen from './screens/OrderScreen';
+import DashboardScreen from './screens/DashboardScreen.js';
+import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen.js';
 
 const routes = {                  
   "/": HomeScreen,
-  "/product/:id": productScreen,    
+  '/product/:id/edit': ProductEditScreen,
+  "/product/:id": ProductScreen, 
+  "/order/:id": OrderScreen,     
   "/cart/:id": CartScreen,   
   "/cart": CartScreen,   
   "/signin": SigninScreen,
@@ -21,7 +27,9 @@ const routes = {
   "/profile" : ProfileScreen,
   "/shipping": ShippingScreen, 
   '/payment' : PaymentScreen,
-  '/placeorder' : PlaceOrderScreen,               
+  '/placeorder' : PlaceOrderScreen,  
+  '/dashboard' : DashboardScreen,
+  '/productlist' : ProductListScreen,            
 };
   const router = async () =>{
     showLoading();
@@ -36,7 +44,7 @@ const routes = {
     await Header.after_render();
     const main = document.getElementById('main-container');
     main.innerHTML = await screen.render();
-    if(screen.after_render) await screen.after_render();
+    if(screen.after_render) await screen.after_render(); 
     hideLoading();
 };
 window.addEventListener("load", router)

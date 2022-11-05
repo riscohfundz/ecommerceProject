@@ -6,7 +6,7 @@ import {
 import { getProduct } from '../api';
 import Rating from '../components/rating';  
 
-const productScreen = {
+const ProductScreen = {
   after_render: () =>{
             const request = parseRequestUrl();
             // console.log(request.id);
@@ -84,4 +84,4 @@ const productScreen = {
     },
 };
 
-export default productScreen;      
+export default ProductScreen;      

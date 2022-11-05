@@ -1,27 +1,14 @@
-import axios from 'axios';
 import Rating from '../components/rating';
-import { 
-   hideLoading,
-   showLoading
-   } from '../utils';
+import { getProducts } from '../api';
+
 
 const HomeScreen = {
     render: async () => {
-      showLoading();
-        const response = await axios( {
-          url: "http://localhost:5000/api/products",
-          headers: {
-            'Content-Type': 'application/json',
-        },
-       
-        });
-        hideLoading();
+    const products = await getProducts();
+    if (products.error) {
+      return `<div class="error">${products.error}</div>`;
+    } 
 
-        if (!response || response.statusText !== 'OK'){
-          return `<div> Error in getting data </div>`
-        }
-        const products = response.data;
-        
         return `
           <ul class="products">
                 ${products.map(

@@ -275,18 +275,47 @@ JS AMAZONA
            2. create backend api to create order
 
           33. Paypal Payment
-           1. add paypal checkout script 
-           2. show paypal checkout script
-           3. update order after payment
+           1. get client id from PayPal
+           2. set it in .env file 
+           3. create route from /api/paypal/clientId
+           4. create getPaypalClientID in api.js
+           5. add paypal checkout script in OrderScreen.js
+           6. show paypal button
+           7. update order after payment
+           8. create payOrder in api.js 
+           9. create route for /:id/pay in orderRouter.js
+           10. rerender after pay order
 
-          34. User history
+          34. Display Customer Orders
            1. create order history api 
-           2. show order in profile Screen
+           2. create api for getMyOrders
+           3. show order in profile Screen
+           4. style orders
 
-          35. Admin Product
-           1. create Admin Order menu in header
-           2. Create ProductListScreen.js
-           3. show product with edit and delete button
-           4. show create product button
-           5. implement create product backend
-           6. redirect user to edit product Screen
+          35. Admin Dashboard UI
+           1. Headers.js 
+           2. if user is admin show dashboard 
+           3. create DashboardScreen
+           4. create DashboardMenu
+           5. Style dashboard
+          36. Admin products UI
+           1. Create ProductListScreen.js
+           2. show product with edit and delete button
+           3. show create product button
+           
+          37. Create Product 
+           1. create product model 
+           2. implement create product route
+           3. create product function in api.js
+           4. call create product function in ProductListScreen
+           5. redirect user to edit product Screen
+          38. Edit Product
+           1. create ProductEditScreen.js 
+           2. load product data from backend       
+           3. handle form submit     
+           4. save product in backend 
+
+          39. Delete Product
+           1. update ProductListScreen
+           2. handle delete button
+           3. rerender after deletion  
