@@ -319,3 +319,53 @@ JS AMAZONA
            1. update ProductListScreen
            2. handle delete button
            3. rerender after deletion  
+          
+          40. Upload Product image
+           1. npm install multer 
+           2. create router/uploadRoute.js  
+           3. import express and multer  
+           4. create disk storage with Date.now().jpg as filename
+           5. set upload as multer({storage})
+           6. router.post('/', upload.sengle('image))
+           7. return req.file.path
+           8. app.use('/api/uploads', uploadRoute) in server.js
+           9. create uploads folder and put empty file.txt there.
+           10. ProductEditScreen.js
+           11. create file input and set id to image-file
+           12. after_render() handle imag-file change
+           13. create form data
+           14. call uploadProductImage()
+           16. create uploadProductImage in api.js 
+           16. update server.js
+
+          41. Build project
+           1. create build script for frontend
+           2. create build script for backend
+           3. update server.js to serve frontend build folder and uploads
+
+          42. Delete Product
+           1. update delete button
+           2. handle delete button
+           3. rerender after deletion
+
+          44. Admin Orders
+           1. create Admin Order menu in headers 
+           2. create AdminOrder.js 
+           3. load orders from backend
+           4. list them in the screen 
+           5. show delete and edit button
+           6. redirect to order details on edit action
+
+          45. Show summary Report in Dashboard 
+           1. create summary section 
+           2. style summary
+           3. create summary backend 
+           4. create summary in api.js 
+           5. load data in dashboard screen 
+           6. show 3 boxes for Users, Orders, and Sales
+
+        46. Show Chart in Dashboard
+         1. import chartlist     
+         2. add chartlist css to index.html 
+         3. create linear chart for product categories  
+          

@@ -50,7 +50,7 @@ const ProductScreen = {
                       <li>
                       Description: 
                       <div>
-                          ${product.Description}
+                          ${product.description}
                       </div>
                       </li> 
                         <li>

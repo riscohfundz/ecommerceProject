@@ -19,9 +19,9 @@ productRouter.get(
    })
  );
 
-productRouter.post(
-    '/', 
-    isAuth,
+productRouter.post(  
+     '/', 
+     isAuth,
      isAdmin,
      expressAsyncHandler(async (req, res)=>{
     const product = new Product({
@@ -41,7 +41,11 @@ productRouter.post(
     }
 })
 );
-productRouter.put('/:id', isAuth, isAdmin, expressAsyncHandler(async (req, res)=> {
+productRouter.put(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res)=> {
     const productId = req.params.id;
     const product = await Product.findById(productId);
     if (product) {
@@ -58,6 +62,20 @@ productRouter.put('/:id', isAuth, isAdmin, expressAsyncHandler(async (req, res)=
         } else {
             res.status(500).send({ message: 'Error in Updating Porduct' });
         } 
+    }
+})
+);
+productRouter.delete(
+    '/:id',
+    isAuth, 
+    isAdmin,
+    expressAsyncHandler (async (req, res) =>{
+    const product = await Product.findById(req.params.id);
+    if (product) {
+        const deletedProduct = await product.remove();
+        res.send({message: 'Product Deleted', product: deletedProduct });
+    } else {
+        res.status(404).send({message: 'Product Not Found!'});
     }
 })
 );
