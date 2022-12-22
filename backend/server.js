@@ -1,3 +1,4 @@
+
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
@@ -8,7 +9,6 @@ import userRouter from './routers/userRouter';
 import orderRouter from './routers/orderRouter';
 import productRouter from './routers/productRouter';
 import uploadRouter from './routers/uploadRouter';
-
 
 mongoose
   .connect(config.MONGODB_URL)
@@ -43,4 +43,4 @@ app.use((err, req, res,next) =>{
 app.listen(5000, () => {
     console.log('Server at http://localhost:5000');
 });
-   
+    

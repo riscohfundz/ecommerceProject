@@ -1,4 +1,4 @@
-/* eslint-disable no-new */
+
 import { LineChart, PieChart } from 'chartist';
 import { getSummary } from "../api";
 import DashboardMenu from "../components/DashboardMenu";

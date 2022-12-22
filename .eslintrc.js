@@ -22,5 +22,8 @@ module.exports = {
         'no-undef' : 0,
         'no-empty' : 0,
         'import/extensions' : 0,
+        'no-use-before-define' : 0,
+        'no-new' : 0,
+        'no-restricted-globals' : 0,
     },
 };

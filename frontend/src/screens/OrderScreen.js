@@ -1,3 +1,4 @@
+
 import {
    parseRequestUrl, 
    rerender,
@@ -60,7 +61,7 @@ const handlePayment = (clientId, totalPrice) => {
         await payOrder(parseRequestUrl().id, {
           orderID: data.orderID,
           payerID: data.payerID,
-          payment: paymentID
+          payment: data.paymentID
          });
          hideLoading();
          showMessage('Payment was successfull.', () => {
@@ -77,15 +78,16 @@ const handlePayment = (clientId, totalPrice) => {
 const OrderScreen = { 
   after_render: async () => {
      const request = parseRequestUrl();
-    docment
-      .getElementById('deliver-order-button')
-      .addEventListener('click', async () => {
+     if (document.getElementById('deliver-order-button')) {
+      document.addEventListener('click', async () => {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
         showMessage('Order Delivered.');
         rerender(OrderScreen);
-    })
+      });
+    }
+
   },
   render: async () => {
     const { isAdmin } = getUserInfo();
