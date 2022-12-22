@@ -6,7 +6,7 @@ const Header = {
         const {name, isAdmin} = getUserInfo();
       return `
     <div>
-      <a href="/#/">Jsamazona</a>
+      <a href="/#/">❤💕Paval Store____</a>
     </div>
     <div>
     ${

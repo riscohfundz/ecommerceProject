@@ -1,10 +1,12 @@
 import Rating from '../components/rating';
 import { getProducts } from '../api';
+import { parseRequestUrl } from '../utils';
 
 
 const HomeScreen = {
     render: async () => {
-    const products = await getProducts();
+      const { value } = parseRequestUrl();
+    const products = await getProducts({ searchKeyword: value });
     if (products.error) {
       return `<div class="error">${products.error}</div>`;
     } 
@@ -32,6 +34,8 @@ const HomeScreen = {
             <div class="product-brand">
                 ${product.brand}
             </div>
+
+            
             <div class="product-price">
                   $${product.price}
               </div>

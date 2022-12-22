@@ -1,5 +1,5 @@
 
-const Rating = {
+const rating = {
     render: (props) => {
     if (!props.value){
         return '<div><div>';
@@ -61,4 +61,4 @@ const Rating = {
     `;   
  },
 }
-export default Rating;
+export default rating;
