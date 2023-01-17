@@ -67,9 +67,12 @@ orderRouter.get('/summary', _utils.isAuth, _utils.isAdmin, (0, _expressAsyncHand
   }]);
   res.send({
     users,
-    orders,
+    orders: orders.length === 0 ? [{
+      numOrders: 0,
+      totalSales: 0
+    }] : orders,
     dailyOrders,
-    productCategories
+    yproductCategories
   });
 }));
 orderRouter.get('/', _utils.isAuth, _utils.isAdmin, (0, _expressAsyncHandler.default)(async (req, res) => {

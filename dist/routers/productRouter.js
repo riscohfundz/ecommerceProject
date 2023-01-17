@@ -18,7 +18,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const productRouter = _express.default.Router();
 
 productRouter.get('/', (0, _expressAsyncHandler.default)(async (req, res) => {
-  const products = await _productModel.default.find({});
+  const searchKeyword = req.query.searchKeyword ? {
+    name: {
+      $reqex: req.query.searchKeyword,
+      $options: 'i'
+    }
+  } : {};
+  const products = await _productModel.default.find({ ...searchKeyword
+  });
   res.send(products);
 }));
 productRouter.get('/:id', (0, _expressAsyncHandler.default)(async (req, res) => {
@@ -85,6 +92,28 @@ productRouter.delete('/:id', _utils.isAuth, _utils.isAdmin, (0, _expressAsyncHan
     res.status(404).send({
       message: 'Product Not Found!'
     });
+  }
+}));
+productRouter.post('/:id/reviews', _utils.isAuth, (0, _expressAsyncHandler.default)(async (req, res) => {
+  const product = await _productModel.default.findById(req.params.id);
+
+  if (product) {
+    const review = {
+      rating: req.body.rating,
+      comment: req.body.comment,
+      user: req.user._id,
+      name: req.user.name
+    };
+    product.reviews.push(review);
+    product.rating = product.reviews.reduce((a, c) => c.rating + a, 0) / product.reviews.length;
+    product.numReviews = product.reviews.length;
+    const updatedProduct = await product.save();
+    res.status(201).send({
+      meassage: 'Comment Created',
+      data: updatedProduct.reviews[updatedProduct.reviews.length - 1]
+    });
+  } else {
+    throw Error('Product does not exist.');
   }
 }));
 var _default = productRouter;
