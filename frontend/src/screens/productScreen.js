@@ -155,8 +155,7 @@ const ProductScreen = {
         }
       </li>
     </ul> 
-
-      </div>
+    </div>
     </div>`;
   },
 };

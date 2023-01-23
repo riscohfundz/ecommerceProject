@@ -5,7 +5,11 @@ import {
      showLoading,
      showMessage
      } from "../utils";
-import { getProduct, updateProduct, uploadProductImage } from "../api";
+import {
+   getProduct,
+   updateProduct, 
+   uploadProductImage,
+   } from "../api";
 
 
 const ProductEditScreen = {
