@@ -5,7 +5,7 @@ import { parseRequestUrl } from '../utils';
 
 const HomeScreen = {
     render: async () => {
-      const { value } = parseRequestUrl();
+     const { value } = parseRequestUrl();
     const products = await getProducts({ searchKeyword: value });
     if (products.error) {
       return `<div class="error">${products.error}</div>`;

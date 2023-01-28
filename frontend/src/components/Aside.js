@@ -17,6 +17,16 @@ const Aside = {
              <span><i class="fa fa-chevron-right"></i></span>
            </a>
            </li>
+           <li>
+           <a href="/#/?q=product">Products
+           <span><i class="fa fa-chevron-right"></i></span>
+           </a>
+         </li>
+         <li>
+         <a href="/#/?q=hoodie">Hoodies
+         <span><i class="fa fa-chevron-right"></i></span>
+         </a>
+       </li>
        </ul>
    </div>
    

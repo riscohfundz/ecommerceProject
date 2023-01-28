@@ -13,7 +13,7 @@ import uploadRouter from './routers/uploadRouter';
 mongoose
   .connect(config.MONGODB_URL)
     .then(()=>{ 
-        console.log('connected to mongodb');
+        console.log('connected to mongoDB!');
     })
  
 
