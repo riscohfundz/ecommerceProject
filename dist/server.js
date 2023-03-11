@@ -23,7 +23,7 @@ var _uploadRouter = _interopRequireDefault(require("./routers/uploadRouter"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _mongoose.default.connect(_config.default.MONGODB_URL).then(() => {
-  console.log('connected to mongodb');
+  console.log('connected to mongoDB!');
 }).catch(error => {// console.log(error.reason);
 });
 

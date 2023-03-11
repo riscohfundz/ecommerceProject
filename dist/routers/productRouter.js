@@ -20,7 +20,7 @@ const productRouter = _express.default.Router();
 productRouter.get('/', (0, _expressAsyncHandler.default)(async (req, res) => {
   const searchKeyword = req.query.searchKeyword ? {
     name: {
-      $reqex: req.query.searchKeyword,
+      $regex: req.query.searchKeyword,
       $options: 'i'
     }
   } : {};

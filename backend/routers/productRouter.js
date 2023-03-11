@@ -1,4 +1,4 @@
-
+  
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import { isAuth, isAdmin} from '../utils';
@@ -13,7 +13,7 @@ productRouter.get(
         name: {
             $regex: req.query.searchKeyword,
             $options: 'i',
-        },
+        },            
       }  
      : {}; 
         const products = await Product.find({ ...searchKeyword});

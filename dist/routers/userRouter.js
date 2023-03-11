@@ -20,9 +20,9 @@ const userRouter = _express.default.Router();
 userRouter.get("/createadmin", (0, _expressAsyncHandler.default)(async (req, res) => {
   try {
     const user = new _userModel.default({
-      name: 'admin',
-      email: 'admin@example.com',
-      password: 'jsamazona',
+      name: 'Riscoh',
+      email: 'riscohfundz.com',
+      password: 'Adebayo16',
       isAdmin: true
     });
     const createdUser = await user.save();

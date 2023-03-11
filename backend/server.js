@@ -10,16 +10,33 @@ import orderRouter from './routers/orderRouter';
 import productRouter from './routers/productRouter';
 import uploadRouter from './routers/uploadRouter';
 
-mongoose
-  .connect(config.MONGODB_URL)
-    .then(()=>{ 
-        console.log('connected to mongoDB!');
-    })
+const PORT = process.env.PORT || 5000;
+
+
+// mongoose
+//   .connect(config.MONGODB_URL)
+//     .then(()=>{ 
+//         console.log('connected to mongoDB!');
+//     })
  
 
-.catch((error) =>{
-    // console.log(error.reason);
-})
+// .catch((error) =>{
+//     // console.log(error.reason);
+// })
+
+mongoose.set('strictQuery', false);
+const connectDB  =  async () => {
+    try {
+      const conn = await mongoose.connect(process.env.MONGODB_URL);
+      console.log(`MongoDB Connected!: ${conn.connection.host}`);
+    } catch (error){
+        console.log(error);
+        process.exit(1);
+
+    }
+}
+
+
 const app = express(); 
 app.use(cors());
 app.use('/api/uploads', uploadRouter)
@@ -40,7 +57,14 @@ app.use((err, req, res,next) =>{
     const status = err.name && err.name ==='validationError' ? 400 : 500;
     res.status(status).send({message: err.message });
 });
-app.listen(5000, () => {
-    console.log('Server at http://localhost:5000');
-});
+
+// app.listen(5000, () => {
+//     console.log('Server at http://localhost:5000');
+// });
     
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Listening on port ${PORT}`);
+    })   
+});

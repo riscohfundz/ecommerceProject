@@ -72,7 +72,7 @@ orderRouter.get('/summary', _utils.isAuth, _utils.isAdmin, (0, _expressAsyncHand
       totalSales: 0
     }] : orders,
     dailyOrders,
-    yproductCategories
+    productCategories
   });
 }));
 orderRouter.get('/', _utils.isAuth, _utils.isAdmin, (0, _expressAsyncHandler.default)(async (req, res) => {

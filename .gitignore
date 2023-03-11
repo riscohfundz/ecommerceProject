@@ -1,1 +1,3 @@
 frontend/main.js
+.env
+/node_modules
