@@ -20,12 +20,27 @@ var _productRouter = _interopRequireDefault(require("./routers/productRouter"));
 
 var _uploadRouter = _interopRequireDefault(require("./routers/uploadRouter"));
 
+var _PORT = process.env.PORT || 5000;
+
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_mongoose.default.connect(_config.default.MONGODB_URL).then(() => {
-  console.log('connected to mongoDB!');
-}).catch(error => {// console.log(error.reason);
-});
+// _mongoose.default.connect(_config.default.MONGODB_URL).then(() => {
+//   console.log('connected to mongoDB!');
+// }).catch(error => {// console.log(error.reason);
+// });
+
+_mongoose.set('strictQuery', false);
+const connectDB  =  async () => {
+    try {
+      const conn = await _mongoose.connect(process.env.MONGODB_URL);
+      console.log(`MongoDB Connected!: ${conn.connection.host}`);
+    } catch (error){
+        console.log(error);
+        process.exit(1);
+
+    }
+}
 
 const app = (0, _express.default)();
 app.use((0, _cors.default)());
@@ -50,6 +65,15 @@ app.use((err, req, res, next) => {
     message: err.message
   });
 });
-app.listen(5000, () => {
-  console.log('Server at http://localhost:5000');
+
+// app.listen(5000, () => {
+//   console.log('Server at http://localhost:5000');
+// });
+
+
+
+connectDB().then(() => {
+  app.listen(_PORT, () => {
+      console.log(`Listening on port ${_PORT}`);
+  })   
 });
