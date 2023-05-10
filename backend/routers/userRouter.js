@@ -28,7 +28,7 @@ userRouter.post(
     const signinUser = await User.findOne({
         email: req.body.email,
         password: req.body.password,
-    });
+    });  
     if(!signinUser){
         res.status(401).send({ 
           message: 'Invalid Email or Password',

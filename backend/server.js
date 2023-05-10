@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 //     .then(()=>{ 
 //         console.log('connected to mongoDB!');
 //     })
- 
+    
 
 // .catch((error) =>{
 //     // console.log(error.reason);
@@ -68,3 +68,4 @@ connectDB().then(() => {
         console.log(`Listening on port ${PORT}`);
     })   
 });
+    
