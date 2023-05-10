@@ -3,7 +3,7 @@ import axios from 'axios';
 import { apiUrl } from "./config";
 import { getUserInfo } from './localStorage';
 
-export const getProducts = async ({searchKeyword = ''}) =>{
+export const getProducts = async (searchKeyword = '') =>{
     try {
         let queryString = '?';
         if (searchKeyword) queryString += `searchKeyword=${searchKeyword}&`;
